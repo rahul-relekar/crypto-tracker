@@ -10,7 +10,7 @@
     align-items: center;
     height: 80px;
     border-bottom: 1px solid #d7d7d7;
-    width: 900px;
+    width: 1400px;
   }
   
   .coin {
@@ -51,11 +51,12 @@
   } 
   
   .coin-marketcap {
-    width: 240px;
+    width: 180px;
   }
   
   .coin-percent {
-    width: 80px;
+    width: 60px;
+    padding:-1px;
   }
   
   .red {

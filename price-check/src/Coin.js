@@ -5,12 +5,31 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        backgroundColor: "transparent",
-        color:"white"
-      },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    backgroundColor: "transparent",
+    color: "white",
+    // backgroundColor: "white",
+    height: "80px",
+  },
+  paperImg:{
+    display: "flex",
+    alignItems: "center",
+    paddingRight: "24px",
+    minWidth: "300px",
+    height: "80px",
+    backgroundColor: "transparent"
+  },
+  image: {
+    height: "30px",
+    width: "30px",
+    marginRight: "10px",
+  },
+  name: {
+    fontSize: "16px",
+    width: "150px",
+  },
 }));
 
 const Coin = ({
@@ -25,28 +44,45 @@ const Coin = ({
   const classes = useStyles();
   return (
     <div className="coin-container">
-      {/* <Grid container spacing={3}>
+      <Grid container spacing={4}>
         <Grid item xs={2}>
-          <Paper className={classes.paper}>{name}</Paper>
+          <Paper className={classes.paperImg}>
+            <img className={classes.image} src={image} alt="crypto" />
+            <h1 className={classes.name}>{name}</h1>
+          </Paper>
+        </Grid>
+        <Grid item xs={1}>
+          <Paper className={classes.paper}>
+            <p className="coin-symbol">{symbol}</p>
+          </Paper>
         </Grid>
         <Grid item xs={2}>
-          <Paper className={classes.paper}>{symbol}</Paper>
+          <Paper className={classes.paper}>
+            <p className="coin-price">HKD {price}</p>
+          </Paper>
+        </Grid>
+        <Grid item xs={2.5}>
+          <Paper className={classes.paper}>
+            <p className="coin-volume">HKD {volume.toLocaleString()}</p>
+          </Paper>
+        </Grid>
+        <Grid item xs={1}>
+          <Paper className={classes.paper}>
+            {priceChange < 0 ? (
+              <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
+            ) : (
+              <p className="coin-percent green">{priceChange.toFixed(2)}%</p>
+            )}
+          </Paper>
         </Grid>
         <Grid item xs={2}>
-          <Paper className={classes.paper}>{price}</Paper>
+          <Paper className={classes.paper}>
+            <p className="coin-marketcap">Mkt Cap: HKD {marketcap.toLocaleString()}</p>
+          </Paper>
         </Grid>
-        <Grid item xs={2}>
-          <Paper className={classes.paper}>{volume.toLocaleString()}</Paper>
-        </Grid>
-        <Grid item xs={2}>
-          <Paper className={classes.paper}>CHANGE</Paper>
-        </Grid>
-        <Grid item xs={2}>
-          <Paper className={classes.paper}>HKD {marketcap.toLocaleString()}</Paper>
-        </Grid>
-      </Grid> */}
+      </Grid>
 
-      <div className="coin-row">
+      {/* <div className="coin-row">
         <div className="coin">
           <img src={image} alt="crypto" />
           <h1>{name}</h1>
@@ -64,7 +100,7 @@ const Coin = ({
 
           <p className="coin-marketcap">HKD {marketcap.toLocaleString()}</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
