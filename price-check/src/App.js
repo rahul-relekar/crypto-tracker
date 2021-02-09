@@ -113,7 +113,7 @@ function App() {
         </form>
       </div>
 
-      <div className={classes.box}>
+      {/* <div className={classes.box}>
         <Grid container spacing={3}>
           <Grid item xs={1.5}>
             <Paper className={classes.paper}>
@@ -146,7 +146,7 @@ function App() {
             </Paper>
           </Grid>
         </Grid>
-      </div>
+      </div> */}
 
       {/* API display from gecko */}
       {filteredCoins.map((coin) => {
