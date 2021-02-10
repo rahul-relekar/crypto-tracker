@@ -41,7 +41,8 @@ function App() {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=hkd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       )
       .then((res) => {
-        setCoins(res.data);
+        setCoins(res.data)
+        console.log(coins);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -56,12 +57,13 @@ function App() {
 
   const columns = [
     { field: "id", hide: true },
-    { field: "name", headerName: "CRYPTO NAME", width: 200 },
+    // { field: "image",headerName: "ICON" },
+    { field: "name", headerName: "NAME", width: 200 },
     { field: "symbol", headerName: "SYMBOL", width: 150 },
-    { field: "price", headerName: "PRICE", width: 200 },
-    { field: "volume", headerName: "VOLUME", width: 200 },
-    { field: "price_change", headerName: "PRICE CHANGE", width: 200 },
-    { field: "market_limit", headerName: "MARKET CAP", width: 200 },
+    { field: "current_price", headerName: "PRICE (HKD)", width: 200 },
+    { field: "total_volume", headerName: "VOLUME(HKD)", width: 200 },
+    { field: "price_change_percentage_24h", headerName: "PRICE CHANGE(%)", width: 200 },
+    { field: "market_cap", headerName: "MARKET CAP(HKD)", width: 200 },
   ];
 
   const rows = [
@@ -78,28 +80,7 @@ function App() {
 
   return (
     <div className="coin-app">
-      {/* <div style={{ height: 400, width: "80%" }}>
-        <DataGrid
-          rows={
-            filteredCoins.map((coin) => {             
-                
-                  key:coin.id
-                  name:coin.name
-                  image:coin.image
-                  symbol:coin.symbol
-                  marketcap:coin.market_cap
-                  price:coin.current_price
-                  priceChange:coin.price_change_percentage_24h
-                  volume:coin.total_volume               
-              ;
-            })
-          }
-          columns={columns}
-          pageSize={5}
-          checkboxSelection
-        />
-
-      </div> */}
+      
       <div className="coin-search">
         {/* Search bar */}
         <h1 className="coin-text"> Search your crypto</h1>
@@ -163,6 +144,17 @@ function App() {
           />
         );
       })}
+      {/* <div style={{ height: 900, width: "61%" }}>
+        
+        <DataGrid
+          rows={coins}          
+          columns={columns}
+          pageSize={50}
+          checkboxSelection={false}
+          loading ={true}
+        />
+        
+      </div> */}
     </div>
   );
 }

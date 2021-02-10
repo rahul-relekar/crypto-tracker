@@ -56,12 +56,12 @@ const Coin = ({
             <p className="coin-symbol">{symbol}</p>
           </Paper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={1.5}>
           <Paper className={classes.paper}>
             <p className="coin-price">HKD {price}</p>
           </Paper>
         </Grid>
-        <Grid item xs={2.5}>
+        <Grid item xs={2.2}>
           <Paper className={classes.paper}>
             <p className="coin-volume">HKD {volume.toLocaleString()}</p>
           </Paper>
